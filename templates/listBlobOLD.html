@@ -6,21 +6,18 @@
         {% else %}
         <title>Missing title</title>
         {% endif %}
+        
     </head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jjo/mycss.css')}}">
     <body>
         <div class="grid">Welcome to the testbench</div>
         <div class="gridA">Extra stuff: View files</div>
         <p></p>
-        <a href="{{url_for('index')}} "> Home</a> 
-        <a href="{{url_for('blob')}} "> View blobs</a>
+        <a href="{{url_for('index')}} "> Home</a>
+        <a href="{{url_for('listblob')}} "> View files</a> 
         <hr> 
-        <p>List of files from blob Storage</p>
-        <ul class="a">
-        {% for blob in blob_list %}
-        <li>{{blob.name}}</li>
+        {% for x in img_html %}
+        <img src=" {{ x }}  "  width='auto' height='200' >
         {% endfor %}
-      </ul>
-          
     </body>
 </html>

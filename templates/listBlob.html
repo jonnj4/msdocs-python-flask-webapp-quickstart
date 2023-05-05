@@ -1,23 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        {% if title %}
-        <title>{{ title }}</title>
-        {% else %}
-        <title>Missing title</title>
-        {% endif %}
-        
-    </head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jjo/mycss.css')}}">
-    <body>
-        <div class="grid">Welcome to the testbench</div>
-        <div class="gridA">Extra stuff: View files</div>
-        <p></p>
-        <a href="{{url_for('index')}} "> Home</a>
-        <a href="{{url_for('listblob')}} "> View files</a> 
-        <hr> 
-        {% for x in img_html %}
-        <img src=" {{ x }}  "  width='auto' height='200' >
-        {% endfor %}
-    </body>
+<head>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Missing title</title>
+    {% endif%}
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jjo/mycss.css')}}">
+<body>
+    <div class="grid">Welcome to the testbench</div>
+    <div class="gridA">Extra stuff: View files</div>
+    <p></p>
+    <a href="{{url_for('index')}} "> Home</a>
+    <a href="{{url_for('listblob')}} "> View files</a>
+    <a href="{{url_for('table')}} "> View images in table</a>
+    <hr>
+    {% for x in img_html %}
+    <img src=" {{ x }}" width="200" height="200">
+    {% endfor %}
+</body>
 </html>
