@@ -31,7 +31,7 @@ def blob():
         img_html.append(blob_client.url)
         #img_html += format(blob_client.url)
         #blob = blob_client.url
-    return render_template('ListBlob.html', title='List Blobs', img_html=img_html)
+    return render_template('listBlob.html', title='List Blobs', img_html=img_html)
 
 @app.route('/table')
 def table():
