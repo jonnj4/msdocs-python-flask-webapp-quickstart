@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
@@ -10,19 +11,24 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jjo/mycss.css')}}">
 <body>
     <div class="grid">Welcome to the testbench</div>
-    <div class="gridA">Extra stuff: Table view</div>
-    <p></p>
-    <a href="{{url_for('index')}} "> Home</a>
-    <a href="{{url_for('listblob')}} "> View files</a> 
-    <a href="{{url_for('blob')}} "> View blobs</a> 
-    <hr> 
-    <div class="gallery">
-    {% for x in img_html %}
-    <a target="_blank" href=" {{ x }}  ">
-    <img src=" {{ x }}  " alt="Missing" width="400" height="200">
-    </a>
-    <div class="desc">Add a description of the image here</div>
-    {% endfor %}
+    <div class="topnav">
+        <a class="active" href="{{url_for('index')}} ">Home</a>
+        <a href="{{url_for('listblob')}} ">View files</a> 
+        <a href="{{url_for('blob')}} ">View blobs</a> 
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>    
+    <div style="padding-left:16px">
+        <h2>Blobs in table from the Blob Storage</h2>
+        <div class="gallery">
+            {% for x in img_html %}
+            <a target="_blank" href=" {{ x }}  ">
+            <img src=" {{ x }}  " alt="Missing" width="400" height="200">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

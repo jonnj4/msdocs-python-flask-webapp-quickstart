@@ -1,26 +1,30 @@
 <html>
-    <head>
-    {% if title %}  
-    <title>{{ title }}</title>
-    {% else %}
-    <title>Missing title</title>
-    {% endif %}  
-    </head>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='jjo/mycss.css')}}">
-    <body>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        {% if title %}  
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Missing title</title>
+        {% endif %}  
+</head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='jjo/mycss.css')}}">
+<body>
     <div class="grid">Welcome to the testbench</div>
-    <div class="gridA">Extra stuff: View files</div>
-    <p></p>
-    <a href="{{url_for('index')}} "> Home</a> 
-    <a href="{{url_for('blob')}} "> View blobs</a>  
-    <a href="{{url_for('table')}} "> View images in table</a>  
-    <hr>
-    <p>List blobs from blob storage</p>
-    <ul class="a">
-    {% for blob in blob_list %}    
-    <li>{{blob.name}}</li>
-    {% endfor %}    
-
-    </ul>
-    </body>
+    <div class="topnav">
+        <a class="active" href="{{url_for('index')}} ">Home</a> 
+        <a href="{{url_for('blob')}} ">View blobs</a>  
+        <a href="{{url_for('table')}} ">View images in table</a>  
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>    
+    <div style="padding-left:16px">
+        <h2>Files from blob storage</h2>
+        <ul class="a">
+        {% for blob in blob_list %}    
+        <li>{{blob.name}}</li>
+        {% endfor %}    
+        </ul>
+    </div>    
+</body>
 </html>
