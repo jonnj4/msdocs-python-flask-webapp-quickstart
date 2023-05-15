@@ -32,43 +32,9 @@ div.desc {
 }
 
 body {
-	width: 100%;
-  height: 100vh;
-  display:contents;
-  justify-content: center;
-  align-items: center;
-	background: #e4e4e4;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-.container {
-	display:grid;
-	grid-template-rows: repeat(6, 1fr);
-	grid-template-columns: repeat(20, 1fr);
-	grid-gap: 10px;  
-}
-
-figure {
-  border: thin #c0c0c0 solid;
-  display:flex;
-  flex-flow:column;
-  padding: 5px;
-  max-width: 220px;
-  margin: auto;
-}
-
-img {
-  max-width: 220px;
-  max-height: 150px;
-}
-
-figcaption {
-  background-color: #222;
-  color: #fff;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align:left;
-}
-
 
 .topnav {
   overflow: hidden;
@@ -92,16 +58,4 @@ figcaption {
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
-}
-
-@media only screen and (max-width: 900px) {
-	body {
-		align-items: start;
-	}
-	.container {
-		grid-template-rows: repeat(4, 1fr);
-		grid-template-columns: 1fr;
-		grid-gap: 40px;
-		padding: 80px 0;
-	}
 }

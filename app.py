@@ -1,4 +1,5 @@
 import os
+from urllib.parse import urlparse, parse_qs, urlsplit
 
 from flask import Flask, redirect, render_template, request,url_for, abort, send_from_directory
 from werkzeug.utils import secure_filename
@@ -34,14 +35,16 @@ def blob():
 
 @app.route('/table')
 def table():
-    img_html = []
+    iHtml = []
+    blobName = []
     blob_items = container_client.list_blobs()
     for blob in blob_items:
         blob_client = container_client.get_blob_client(blob=blob.name)
-        #img_html += "<img src='{}' width='auto' height='200'/>".format(blob_client.url)
-        img_html.append(blob_client.url)
-        #img_html += format(blob_client.url)
-        #blob = blob_client.url
+        iHtml.append(blob_client.url)
+        parsed_url = urlparse(blob_client.url)
+        parsedPath = parsed_url.path
+        blobName.append(parsedPath)
+    img_html = [list(iHtml) for iHtml in zip(iHtml,blobName)]    
     return render_template('blobTable.html', title='List Blobs', img_html=img_html)
 
 
